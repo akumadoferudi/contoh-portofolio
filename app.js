@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
-const port = 3030
+const port = parseInt(process.env.PORT) || 3030
+
+// set the proxy
+app.set('trust proxy', true)
 
 // set static storage
 app.use(express.static('public'))
@@ -14,10 +17,6 @@ app.set('view engine', 'ejs')
 app.get('/', function(req, res) {
   res.render('portofolio')
 })
-
-// app.get('/', (req, res) => {
-//     res.send('Hello World!')
-//   })
   
   app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`)
