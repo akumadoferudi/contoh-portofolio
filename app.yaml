@@ -1,2 +1,7 @@
 runtime: nodejs16 # nodejs in my local pc
+
+handlers:
+  - url: /.*
+    script: auto
+
 service: default # default name for service
